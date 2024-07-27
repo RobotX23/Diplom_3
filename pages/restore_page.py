@@ -12,3 +12,7 @@ class RestorePage(BasePage):
     @allure.step("Нажатие кнопки восстановить")
     def get_restore_button(self):
         self.clik_to_element(RestorePageLocator.BUTTON)
+
+    @allure.step("Нахождение на странице восстановления пароля")
+    def get_restore(self):
+        return self.find_element_with_wait(RestorePageLocator.RESTOR)

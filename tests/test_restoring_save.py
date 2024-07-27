@@ -17,7 +17,9 @@ class TestRestoreSave:
         main_page.get_click_entrance()
         login_page = LoginPage(driver)
         login_page.get_click_restore()
-        assert login_page.get_url_log() == url
+        restore_page = RestorePage(driver)
+        a = restore_page.get_restore()
+        assert a.text == 'Восстановление пароля'
 
 
     @allure.title('Переход по кнопке восстановление пароля через личный кабинет')
@@ -28,7 +30,9 @@ class TestRestoreSave:
         main_page.get_click_cabinet()
         login_page = LoginPage(driver)
         login_page.get_click_restore()
-        assert login_page.get_url_log() == url
+        restore_page = RestorePage(driver)
+        a = restore_page.get_restore()
+        assert a.text == 'Восстановление пароля'
 
     @allure.title('Ввод email и восстановленипароля')
     @pytest.mark.parametrize('email', [email])
