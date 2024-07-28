@@ -1,15 +1,15 @@
 import allure
 from pages.base_page import BasePage
 from locators.main_page_locators import MainPageLocator
-import time
+
 
 
 
 class MainPage(BasePage):
 
-    @allure.step("Ожидание полной занрузки страницы")
+    @allure.step("Ожидание полной загрузки страницы")
     def get_sleep(self):
-        self.sleep(MainPageLocator.FLAG)
+        self.sleep(MainPageLocator.CLOSE_ORDER_GOOD)
 
     @allure.step("Нахождение на главной странице")
     def get_home(self):
@@ -35,12 +35,6 @@ class MainPage(BasePage):
 
 
 
-    @allure.step("Нажатие на ингредиент")
-    def get_ing(self):
-        self.clik_to_element(MainPageLocator.ING)
-        return self.find_element_with_wait(MainPageLocator.INGRED)
-
-
     @allure.step("Закрытие ингредиента")
     def get_ing_close(self):
         self.clik_to_element(MainPageLocator.CLOSE_INGRED)
@@ -61,3 +55,11 @@ class MainPage(BasePage):
     @allure.step("Заказ оформлен")
     def get_ing_order_ok(self):
         return self.find_element_with_wait(MainPageLocator.ORDER_OK)
+
+    @allure.step("Закрыть окно заказа")
+    def get_close_order(self):
+        self.clik_to_esc()
+
+    @allure.step("Окно заказа закрыто")
+    def get_close_order_good(self):
+        self.find_element_good(MainPageLocator.CLOSE_ORDER_GOOD)

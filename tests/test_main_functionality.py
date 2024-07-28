@@ -1,6 +1,4 @@
 import pytest
-
-from pages.restore_page import RestorePage
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.order_freed_page import OrderFreed

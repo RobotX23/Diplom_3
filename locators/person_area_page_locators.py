@@ -5,3 +5,8 @@ class PesronAreaPageLocators:
     HISTORY_ORDERS = By.XPATH, ".//a[@class='Account_link__2ETsJ text text_type_main-medium text_color_inactive']"
     IN_HISTORY = By.XPATH, ".//a[@class='Account_link__2ETsJ text text_type_main-medium text_color_inactive Account_link_active__2opc9' and text()='История заказов']"
     EXIT = By.XPATH, ".//button[@class='Account_button__14Yp3 text text_type_main-medium text_color_inactive']"
+    ORDER = By.XPATH, ".//p[@class='text text_type_digits-default']"
+    ORDER_GOOD = By.XPATH, ".//li[@class='OrderHistory_listItem__2x95r mb-6']"
+
+
+

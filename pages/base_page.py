@@ -1,7 +1,7 @@
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver import ActionChains
-import time
+from selenium.webdriver.common.keys import Keys
 
 
 
@@ -56,3 +56,21 @@ class BasePage:
         droppable = self.driver.find_element(*locator_two)
         action_chains = ActionChains(self.driver)
         action_chains.drag_and_drop(draggable, droppable).perform()
+
+    def clik_to_one_element(self, locator):
+        self.driver.find_element(*locator).click()
+
+    def clik_to_esc(self):
+        action_chains = ActionChains(self.driver)
+        action_chains.send_keys(Keys.ESCAPE).perform()
+
+    def find_element_one(self, locator):
+        return self.driver.find_elements(*locator)[-1]
+
+    def find_element_vile(self, locator):
+        return self.driver.find_elements(*locator)
+
+    def find_element_good(self, locator):
+        WebDriverWait(self.driver, 20).until(
+            expected_conditions.presence_of_element_located(locator))
+        return self.driver.find_element(*locator)

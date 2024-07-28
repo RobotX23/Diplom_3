@@ -4,7 +4,7 @@ from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from data import *
 import allure
-import time
+
 
 class TestPersonArea:
 
@@ -40,8 +40,8 @@ class TestPersonArea:
         assert a.text == 'Профиль'
 
     @allure.title('Переход в историю заказа')
-    @pytest.mark.parametrize('email, password, url', [(email,password,url_history)])
-    def test_click_history(self, driver, email, password, url):
+    @pytest.mark.parametrize('email, password', [(email,password)])
+    def test_click_history(self, driver, email, password):
         main_page = MainPage(driver)
         main_page.get_sleep()
         main_page.get_click_cabinet()
@@ -52,11 +52,11 @@ class TestPersonArea:
         main_page.get_click_cabinet()
         person_page = PersonArea(driver)
         person_page.get_ckick_history()
-        assert person_page.url() == url
+        assert person_page.url() == 'https://stellarburgers.nomoreparties.site/account/order-history'
 
     @allure.title('Выход из профиля')
-    @pytest.mark.parametrize('email, password, class_exit', [(email,password, class_exit)])
-    def test_exit(self, driver, email, password, class_exit):
+    @pytest.mark.parametrize('email, password', [(email,password)])
+    def test_exit(self, driver, email, password):
         main_page = MainPage(driver)
         main_page.get_sleep()
         main_page.get_click_cabinet()
